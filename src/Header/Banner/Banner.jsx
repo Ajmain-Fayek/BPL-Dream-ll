@@ -1,9 +1,15 @@
 import Banner_Logo from "../../assets/banner-main.png";
+import Banner_bg from "../../assets/bg-shadow.png";
 
 function Banner() {
+
+
     return (
         <div className="max-w-screen-2xl mx-auto bg-black rounded-xl">
-            <div className="text-center flex flex-col gap-4 bg-hero-pattern bg-no-repeat bg-cover bg-center rounded-xl p-14">
+            <div
+                className="text-center flex flex-col gap-4 bg-no-repeat bg-cover bg-center rounded-xl p-14"
+                style={{backgroundImage: `url(${Banner_bg})`}}
+            >
                 <div className="mx-auto mb-4">
                     <img src={Banner_Logo} alt="" />
                 </div>

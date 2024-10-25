@@ -31,9 +31,6 @@ export default {
                 "title-bg": "rgba(19, 19, 19, 0.05)",
                 "footer-bg": "rgb(6, 9, 26)",
             },
-            backgroundImage: {
-                'hero-pattern': "url(./src/assets/bg-shadow.png)"
-            }
         },
     },
     plugins: [require("daisyui")],
