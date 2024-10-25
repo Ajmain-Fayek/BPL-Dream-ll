@@ -30,6 +30,7 @@ export default {
                 "text-secondary-white": "rgba(255, 255, 255, 0.7)",
                 "title-bg": "rgba(19, 19, 19, 0.05)",
                 "footer-bg": "rgb(6, 9, 26)",
+                "navbar-bg": "rgba(255, 255, 255, 0.7)",
             },
         },
     },

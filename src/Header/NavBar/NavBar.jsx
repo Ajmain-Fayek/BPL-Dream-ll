@@ -3,7 +3,7 @@ import Coin from "./Coin";
 
 function NavBar() {
     return (
-        <nav className="max-w-screen-2xl sticky top-0 z-50 mx-auto flex gap-4 justify-between items-center py-4 backdrop-blur-xl">
+        <nav className="max-w-screen-2xl sticky top-0 z-50 bg-navbar-bg mx-auto flex gap-4 justify-between items-center py-4 backdrop-blur-xl">
             <div>
                 <a href="">
                     <img src={Logo} className="w-16" alt="BPL Dream 11 logo" />
