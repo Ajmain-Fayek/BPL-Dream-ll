@@ -10,7 +10,7 @@ function Banner() {
                 className="text-center flex flex-col gap-4 bg-no-repeat bg-cover bg-center rounded-xl p-14"
                 style={{backgroundImage: `url(${Banner_bg})`}}
             >
-                <div className="mx-auto mb-4">
+                <div className="mx-auto mb-4"> 
                     <img src={Banner_Logo} alt="" />
                 </div>
                 <h1 className="text-text-primary-white text-4xl">
