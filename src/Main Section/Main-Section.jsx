@@ -1,11 +1,16 @@
-import PlayerData from "./PlayerData";
+import FetchPlayerData from "./Players Data/PlayerData";
+import SelectedPlayer from "./Selected Players/SelectedPlayerCard";
+import { useState } from "react";
 
 function MainSection() {
+    const [toggle, setToggle] = useState(true);
+
     const selectedBTN = () => {
         document.getElementById("selected").className =
             "btn join-item bg-btn-primary";
         document.getElementById("availavble").className =
             "btn join-item bg-white";
+        setToggle(() => false);
     };
 
     const availableBTN = () => {
@@ -13,6 +18,7 @@ function MainSection() {
             "btn join-item bg-btn-primary";
         document.getElementById("selected").className =
             "btn join-item bg-white";
+        setToggle(() => true);
     };
 
     return (
@@ -37,7 +43,11 @@ function MainSection() {
                 </div>
             </div>
             <div className="w-full">
-                <PlayerData></PlayerData>
+                {toggle ? (
+                    <FetchPlayerData></FetchPlayerData>
+                ) : (
+                    <SelectedPlayer></SelectedPlayer>
+                )}
             </div>
         </main>
     );
