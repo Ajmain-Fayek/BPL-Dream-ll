@@ -42,13 +42,13 @@ function Footer() {
                                     updates.
                                 </span>
                             </label>
-                            <div className="join">
+                            <div className=" sm:join space-y-2 sm:space-y-0">
                                 <input
                                     type="text"
                                     placeholder="Enter Your Email"
-                                    className="input input-bordered join-item shadow-[inset_0_0_4px_rgba(0,0,0,0.6)] border-none focus:outline-none focus:shadow-[inset_0_0_4px_rgba(0,0,0,0.6)]"
+                                    className="input min-w-8 input-bordered join-item shadow-[inset_0_0_4px_rgba(0,0,0,0.6)] border-none focus:outline-none focus:shadow-[inset_0_0_10px_rgba(0,0,0,0.4)]"
                                 />
-                                <button className="btn border-none bg-gradient-to-r from-purple-400 to-orange-500 join-item shadow-[inset_0_0_4px_rgba(0,0,0,0.6)]">
+                                <button className="btn border-none bg-gradient-to-r from-purple-400 to-orange-500 join-item shadow-[inset_0_0_10px_rgba(0,0,0,0.4)]">
                                     Subscribe
                                 </button>
                             </div>

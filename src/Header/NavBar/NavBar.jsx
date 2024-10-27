@@ -34,7 +34,7 @@ function NavBar() {
 
     return (
         <nav className="fixed left-0 right-0 top-0 z-50 bg-navbar-bg backdrop-blur-xl">
-            <div className="hidden sm:flex max-w-screen-2xl  mx-auto gap-4 justify-between items-center py-4 ">
+            <div className="hidden sm:flex max-w-screen-2xl  mx-auto gap-4 justify-between items-center py-4 px-2">
                 <div>
                     <a href="">
                         <img
@@ -66,7 +66,7 @@ function NavBar() {
             </div>
             {/* Mobile NavBar */}
             <div className="sm:hidden">
-                <div className="NavToggle flex justify-between items-center py-4">
+                <div className="NavToggle flex justify-between items-center py-4 px-2">
                     {/* Menu Button */}
                     <div>
                         <a href="">

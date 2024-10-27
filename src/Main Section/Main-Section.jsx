@@ -1,5 +1,5 @@
 import FetchPlayerData from "./Players Data/PlayerData";
-import SelectedPlayer from "./Selected Players/SelectedPlayerCard";
+import SelectedPlayerData from "./Selected Players/SelectedPlayerData";
 import { useState } from "react";
 
 function MainSection() {
@@ -42,11 +42,11 @@ function MainSection() {
                     </button>
                 </div>
             </div>
-            <div className="w-full">
+            <div id={toggle?"allPlayers": "selectedPlayersSection"} className="w-full">
                 {toggle ? (
                     <FetchPlayerData></FetchPlayerData>
                 ) : (
-                    <SelectedPlayer></SelectedPlayer>
+                    <SelectedPlayerData></SelectedPlayerData>
                 )}
             </div>
         </main>

@@ -1,5 +1,5 @@
-import ProfileSvg from "../Profile_svg";
-import FlagSvg from "../Flag_svg";
+import ProfileSvg from "./Profile_svg";
+import FlagSvg from "./Flag_svg";
 import PropTypes from "prop-types";
 
 function Card({ players }) {
@@ -20,10 +20,11 @@ function Card({ players }) {
             [JSON.stringify({ playerId: playerId })],
             [
                 JSON.stringify({
-                    name: name,
-                    imageUrl: imageUrl,
-                    role: role,
+                    name,
+                    imageUrl,
+                    role,
                     biddingPrice,
+                    playerId
                 }),
             ]
         );
@@ -33,7 +34,7 @@ function Card({ players }) {
 
 
     return (
-        <div className="p-2 rounded-lg border w-full">
+        <div id={`playerId${playerId}`} className="p-2 rounded-lg border w-full">
             <div className="card card-compact bg-base-100">
                 <figure className="rounded-lg">
                     <img className="w-full" alt={name} src={imageUrl} />
