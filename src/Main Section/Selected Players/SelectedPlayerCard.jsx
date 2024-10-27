@@ -39,10 +39,10 @@ function SelectedPlayer({ player }) {
                     alt={player.name}
                 />
                 <div className="space-y-2">
-                    <p className="font-semibold text-xl text-text-primary-black">
+                    <p className="font-semibold sm:text-xl text-base text-text-primary-black">
                         {player.name}
                     </p>
-                    <p className="text-text-secondary-black">{player.role}</p>
+                    <p className="text-text-secondary-black sm:text-base text-sm">{player.role}</p>
                 </div>
             </div>
             <button

@@ -12,10 +12,10 @@ function NewsLetter() {
                             style={{ backgroundImage: `url(${Banner_bg})` }}
                             className="px-2 py-32 bg-cover bg-right-top sm:bg-center rounded-lg text-center space-y-4"
                         >
-                            <p className="text-text-primary-black font-bold text-2xl">
+                            <p className="text-text-primary-black font-bold sm:text-2xl text-lg">
                                 Subscribe to our Newsletter
                             </p>
-                            <p className="text-text-secondary-black">
+                            <p className="text-text-secondary-black sm:text-base text-sm">
                                 Get the latest updates and news right in your
                                 inbox!
                             </p>

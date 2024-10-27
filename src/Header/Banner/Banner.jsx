@@ -2,6 +2,13 @@ import Banner_Logo from "../../assets/banner-main.png";
 import Banner_bg from "../../assets/bg-shadow.png";
 
 function Banner() {
+
+    const claimCoins = () => {
+        
+            document.getElementById("coin1").innerHTML = `$${500}`
+            document.getElementById("coin2").innerHTML = `$${500}`
+    }
+
     return (
         <div className="max-w-screen-2xl mx-auto bg-black rounded-xl mt-32">
             <div
@@ -11,13 +18,14 @@ function Banner() {
                 <div className="mx-auto mb-4">
                     <img src={Banner_Logo} alt="" />
                 </div>
-                <h1 className="text-text-primary-white text-4xl">
+                <h1 className="text-text-primary-white font-bold sm:text-4xl text-xl">
                     Assemble Your Ultimate Dream 11 Cricket Team
                 </h1>
-                <p className="text-text-secondary-white text-2xl">
+                <p className="text-text-secondary-white sm:text-2xl text-base">
                     Beyond Boundaries Beyond Limits
                 </p>
                 <button
+                    onClick={claimCoins}
                     id="cfc1"
                     className="w-fit mx-auto p-px active:my-1.5 bg-btn-primary hover:bg-gradient-to-r from-purple-400 to-orange-500 rounded-xl"
                 >
