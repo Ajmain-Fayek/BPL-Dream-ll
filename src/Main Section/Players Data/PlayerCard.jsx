@@ -15,6 +15,16 @@ function Card({ players }) {
         playerId,
     } = players;
 
+    // const [count, setCount] = useState(PlayerCount());
+
+    // const selectedCount = () => {
+    //     const increaseCount = count + 1;
+    //     setCount(increaseCount);
+    // };
+
+    // console.log(count);
+
+
     const selectPlayer = () => {
         localStorage.setItem(
             [JSON.stringify({ playerId: playerId })],
@@ -24,17 +34,17 @@ function Card({ players }) {
                     imageUrl,
                     role,
                     biddingPrice,
-                    playerId
+                    playerId,
                 }),
             ]
         );
     };
 
-
-
-
     return (
-        <div id={`playerId${playerId}`} className="p-2 rounded-lg border w-full">
+        <div
+            id={`playerId${playerId}`}
+            className="p-2 rounded-lg border w-full"
+        >
             <div className="card card-compact bg-base-100">
                 <figure className="rounded-lg">
                     <img className="w-full" alt={name} src={imageUrl} />

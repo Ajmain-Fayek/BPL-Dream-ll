@@ -32,6 +32,7 @@ export default {
                 "footer-bg": "rgb(6, 9, 26)",
                 "navbar-bg": "rgba(255, 255, 255, 0.7)",
                 "newsLetter-bg": "rgba(255, 255, 255, 0.15)",
+                "newsLetter-bg2": "rgba(245, 245, 245)",
             },
         },
     },

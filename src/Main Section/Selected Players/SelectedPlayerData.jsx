@@ -17,8 +17,6 @@ function SelectedPlayerData() {
         }
     }
 
-    console.log(playerData)
-
     if (playerData.length !== 0) {
         return playerData.map((player) => (
             <SelectedPlayer player={player}></SelectedPlayer>

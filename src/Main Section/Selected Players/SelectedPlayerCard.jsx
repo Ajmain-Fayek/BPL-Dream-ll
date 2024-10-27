@@ -1,15 +1,13 @@
 import DeleteSvg from "./delete-svg";
 
 function SelectedPlayer({ player }) {
-    console.log(player);
-
     const deletePlayer = (playerId) => {
         localStorage.removeItem(JSON.stringify({ playerId: playerId }));
         document.getElementById(`playerId${playerId}`).classList = "hidden";
         document.getElementById(`playerId${playerId}`).innerHTML = "";
     };
 
-    return(
+    return (
         <div
             id={`playerId${player.playerId}`}
             className="border rounded-xl py-2 px-4 flex items-center justify-between gap-4 my-4"
@@ -31,7 +29,7 @@ function SelectedPlayer({ player }) {
                 onClick={() => deletePlayer(player.playerId)}
                 className="p-2"
             >
-            <DeleteSvg></DeleteSvg>
+                <DeleteSvg></DeleteSvg>
             </button>
         </div>
     );

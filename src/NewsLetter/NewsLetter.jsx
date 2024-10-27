@@ -7,7 +7,7 @@ function NewsLetter() {
             <div className="py-40 sm:py-40"></div>
             <div className="absolute left-2 right-2 top-24 mx-auto space-y-6">
                 <div className="border-4 bg-newsLetter-bg rounded-2xl border-white max-w-screen-2xl mx-auto p-4">
-                    <div className="bg-white rounded-lg">
+                    <div className="bg-newsLetter-bg2 border rounded-lg">
                         <div
                             style={{ backgroundImage: `url(${Banner_bg})` }}
                             className="px-2 py-32 bg-cover bg-center rounded-lg text-center space-y-4"
