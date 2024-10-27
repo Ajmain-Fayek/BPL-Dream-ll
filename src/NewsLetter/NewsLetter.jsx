@@ -10,7 +10,7 @@ function NewsLetter() {
                     <div className="bg-newsLetter-bg2 border rounded-lg">
                         <div
                             style={{ backgroundImage: `url(${Banner_bg})` }}
-                            className="px-2 py-32 bg-cover bg-center rounded-lg text-center space-y-4"
+                            className="px-2 py-32 bg-cover bg-right-top sm:bg-center rounded-lg text-center space-y-4"
                         >
                             <p className="text-text-primary-black font-bold text-2xl">
                                 Subscribe to our Newsletter

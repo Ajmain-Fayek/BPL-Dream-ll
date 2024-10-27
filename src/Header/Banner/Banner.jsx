@@ -2,8 +2,6 @@ import Banner_Logo from "../../assets/banner-main.png";
 import Banner_bg from "../../assets/bg-shadow.png";
 
 function Banner() {
-
-
     return (
         <div className="max-w-screen-2xl mx-auto bg-black rounded-xl mt-32">
             <div
@@ -19,9 +17,15 @@ function Banner() {
                 <p className="text-text-secondary-white text-2xl">
                     Beyond Boundaries Beyond Limits
                 </p>
-                <button className="w-fit mx-auto p-px active:my-1.5 bg-btn-primary hover:bg-gradient-to-r from-purple-400 to-orange-500 rounded-xl">
+                <button
+                    id="cfc1"
+                    className="w-fit mx-auto p-px active:my-1.5 bg-btn-primary hover:bg-gradient-to-r from-purple-400 to-orange-500 rounded-xl"
+                >
                     <div className="bg-black p-1.5 active:p-0 rounded-xl">
-                        <p className="bg-btn-primary text-text-primary-black py-2 px-4 rounded-lg font-semibold hover:bg-gradient-to-r from-purple-400 to-orange-500">
+                        <p
+                            id="cfc2"
+                            className="bg-btn-primary text-text-primary-black py-2 px-4 rounded-lg font-semibold hover:bg-gradient-to-r from-purple-400 to-orange-500"
+                        >
                             Claim Free Credit
                         </p>
                     </div>

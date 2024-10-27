@@ -1,10 +1,30 @@
 import DeleteSvg from "./delete-svg";
 
 function SelectedPlayer({ player }) {
+    const selectedCount = () => {
+        const playerData = [];
+
+        for (let i = 1; i <= 20; i++) {
+            if (
+                JSON.parse(
+                    localStorage.getItem(JSON.stringify({ playerId: i }))
+                ) !== null
+            ) {
+                playerData.push(
+                    JSON.parse(
+                        localStorage.getItem(JSON.stringify({ playerId: i }))
+                    )
+                );
+            }
+        }
+        return playerData.length;
+    };
+
     const deletePlayer = (playerId) => {
         localStorage.removeItem(JSON.stringify({ playerId: playerId }));
         document.getElementById(`playerId${playerId}`).classList = "hidden";
         document.getElementById(`playerId${playerId}`).innerHTML = "";
+        document.getElementById("selected").innerHTML = `Selected (${selectedCount()})`;
     };
 
     return (

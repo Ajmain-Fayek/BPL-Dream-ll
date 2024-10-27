@@ -15,15 +15,26 @@ function Card({ players }) {
         playerId,
     } = players;
 
-    // const [count, setCount] = useState(PlayerCount());
+    const selectedCount = () => {
+        const playerData = [];
 
-    // const selectedCount = () => {
-    //     const increaseCount = count + 1;
-    //     setCount(increaseCount);
-    // };
+        for (let i = 1; i <= 20; i++) {
+            if (
+                JSON.parse(
+                    localStorage.getItem(JSON.stringify({ playerId: i }))
+                ) !== null
+            ) {
+                playerData.push(
+                    JSON.parse(
+                        localStorage.getItem(JSON.stringify({ playerId: i }))
+                    )
+                );
+            }
+        }
+        return playerData.length;
+    };
 
     // console.log(count);
-
 
     const selectPlayer = () => {
         localStorage.setItem(
@@ -38,6 +49,9 @@ function Card({ players }) {
                 }),
             ]
         );
+        document.getElementById(
+            "selected"
+        ).innerHTML = `Selected (${selectedCount()})`;
     };
 
     return (
