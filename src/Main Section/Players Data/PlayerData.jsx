@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./PlayerCard";
 import Data from "../../data.json";
+import "react-toastify/dist/ReactToastify.css";
 
 function FetchPlayerData() {
     return (

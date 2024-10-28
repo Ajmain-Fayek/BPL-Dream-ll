@@ -1,4 +1,5 @@
 import DeleteSvg from "./delete-svg";
+import "react-toastify/dist/ReactToastify.css";
 
 function SelectedPlayer({ player }) {
     const { name, imageUrl, role, biddingPrice, playerId } = player;

@@ -1,6 +1,6 @@
 import SelectedPlayer from "./SelectedPlayerCard";
 import "react-toastify/dist/ReactToastify.css";
-import MainSection from "../Main-Section";
+
 
 function SelectedPlayerData() {
     const playerData = [];
@@ -20,9 +20,7 @@ function SelectedPlayerData() {
     }
 
     const renderPlayerData = () => {
-        <>
-            <MainSection />
-        </>;
+       location.reload()
     };
 
     if (playerData.length !== 0) {

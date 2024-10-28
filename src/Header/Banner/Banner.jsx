@@ -1,5 +1,6 @@
 import Banner_Logo from "../../assets/banner-main.png";
 import Banner_bg from "../../assets/bg-shadow.png";
+import "react-toastify/dist/ReactToastify.css";
 
 function Banner() {
     const amout = (a) => {

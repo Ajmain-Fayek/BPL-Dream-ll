@@ -1,6 +1,7 @@
 import FetchPlayerData from "./Players Data/PlayerData";
 import SelectedPlayerData from "./Selected Players/SelectedPlayerData";
 import { useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
 
 function MainSection() {
     const [toggle, setToggle] = useState(true);
@@ -79,7 +80,7 @@ function MainSection() {
                 id={toggle ? "allPlayers" : "selectedPlayersSection"}
                 className="w-full"
             >
-                
+
                 {toggle ? <FetchPlayerData /> : <SelectedPlayerData />}
             </div>
         </main>
