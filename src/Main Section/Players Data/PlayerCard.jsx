@@ -9,13 +9,10 @@ function Card({ players }) {
     // toast
     const toastMsg = (msg_text) => {
         const Msg = ({ closeToast, toastProps }) => (
-            <div className="text-red-800">
-                {msg_text}
-            </div>
+            <div className="text-red-800">{msg_text}</div>
         );
         toast(Msg);
     };
-
 
     // Toast Call function
     const displayMsg = (alertMsg) => {
@@ -65,9 +62,17 @@ function Card({ players }) {
             : reduceCoin(biddingPrice);
     };
 
+    // if count is not set yet, that time validation
+    const initialCoinValidation = () => {
+        displayMsg("First Claim Some Credits");
+        return 0;
+    };
+
     // Get the remaining amout of coins from localStorage
     const getCoins = () => {
-        return parseFloat(localStorage.getItem("coin1234"));
+        return isNaN(parseFloat(localStorage.getItem("coin1234")))
+            ? initialCoinValidation()
+            : parseFloat(localStorage.getItem("coin1234"));
     };
 
     // Show alert if balance is insufficieant then return the remaining coin amount
