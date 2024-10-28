@@ -1,8 +1,11 @@
 import SelectedPlayer from "./SelectedPlayerCard";
 import FetchPlayerData from "../Players Data/PlayerData";
+import MainSection from "../Main-Section";
+
+import React from "react";
+import Toast from "./toast";
 
 function SelectedPlayerData() {
-    // console.log(fetchModule)
 
     const playerData = [];
 
@@ -21,9 +24,11 @@ function SelectedPlayerData() {
     }
 
     const renderPlayerData = () => {
-        return (document.getElementById("playerCardContainer").innerHTML = `${(
-            <FetchPlayerData></FetchPlayerData>
-        )}`);
+        return <Toast />;
+
+        // document.getElementById("playerCardContainer").innerHTML = (
+        //     <MainSection />
+        // );
     };
 
     if (playerData.length !== 0) {
@@ -32,7 +37,7 @@ function SelectedPlayerData() {
                 <div>
                     {playerData.map((player) => (
                         <>
-                            <SelectedPlayer player={player}></SelectedPlayer>
+                            <SelectedPlayer player={player} />
                         </>
                     ))}
                 </div>
@@ -45,7 +50,8 @@ function SelectedPlayerData() {
                         Add More
                     </button>
                 </div>
-                <div id="playerCardContainer"></div>
+                <div id="playerCardContainer">
+                </div>
             </>
         );
     } else {
@@ -63,7 +69,8 @@ function SelectedPlayerData() {
                         Add More
                     </button>
                 </div>
-                <div id="playerCardContainer"></div>
+                <div id="playerCardContainer">
+                </div>
             </>
         );
     }

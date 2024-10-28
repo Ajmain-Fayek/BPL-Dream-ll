@@ -1,8 +1,28 @@
+import React from "react";
 import ProfileSvg from "./Profile_svg";
 import FlagSvg from "./Flag_svg";
 import PropTypes from "prop-types";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Card({ players }) {
+    // toast
+    const toastMsg = (msg_text) => {
+        const Msg = ({ closeToast, toastProps }) => (
+            <div className="text-red-800">
+                {msg_text}
+            </div>
+        );
+        toast(Msg);
+    };
+
+
+    // Toast Call function
+    const displayMsg = (alertMsg) => {
+        toastMsg(alertMsg);
+        // toast(Msg) would also work
+    };
+
     // Player Distructured
     const {
         name = "N/A",
@@ -39,9 +59,9 @@ function Card({ players }) {
     //  Is player Already selected or not validation
     const isPlayerSelected = (playerId, biddingPrice) => {
         selectedCount() === 6
-            ? alert("Reached Maximum Player Selection")
+            ? displayMsg("Reached Maximum Player Selection")
             : localStorage.getItem(`{"playerId":${playerId}}`)
-            ? alert("Player already selected")
+            ? displayMsg("Player already selected")
             : reduceCoin(biddingPrice);
     };
 
@@ -53,7 +73,7 @@ function Card({ players }) {
     // Show alert if balance is insufficieant then return the remaining coin amount
     const showAlert = () => {
         if (getCoins() < biddingPrice) {
-            alert("Insufficient Amout");
+            displayMsg("Insufficient Coins");
         }
         return getCoins() === 0 ? 0 : getCoins();
     };
@@ -66,7 +86,7 @@ function Card({ players }) {
                 ? showAlert()
                 : getCoins() -
                       (isNaN(biddingPrice)
-                          ? alert("Bidding Price not Available")
+                          ? displayMsg("Bidding Price not Available")
                           : setPlayer())
         );
     };
@@ -111,18 +131,19 @@ function Card({ players }) {
             id={`playerId${playerId}`}
             className="p-2 rounded-lg border w-full"
         >
+            <ToastContainer />
             <div className="card card-compact bg-base-100">
                 <figure className="rounded-lg">
                     <img className="w-full" alt={name} src={imageUrl} />
                 </figure>
                 <div className="card-body w-full">
                     <div className="flex items-center gap-1.5">
-                        <ProfileSvg></ProfileSvg>
+                        <ProfileSvg />
                         <h2 className="card-title">{name}</h2>
                     </div>
                     <div className="flex gap-2 items-center justify-between">
                         <div className="flex items-center gap-1.5">
-                            <FlagSvg></FlagSvg>
+                            <FlagSvg />
                             <p>{country}</p>
                         </div>
                         <div className="px-4 py-2 bg-gray-200 rounded-lg">

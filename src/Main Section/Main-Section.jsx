@@ -79,11 +79,7 @@ function MainSection() {
                 id={toggle ? "allPlayers" : "selectedPlayersSection"}
                 className="w-full"
             >
-                {toggle ? (
-                    <FetchPlayerData></FetchPlayerData>
-                ) : (
-                    <SelectedPlayerData></SelectedPlayerData>
-                )}
+                {toggle ? <FetchPlayerData /> : <SelectedPlayerData />}
             </div>
         </main>
     );

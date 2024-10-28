@@ -1,7 +1,7 @@
 import DeleteSvg from "./delete-svg";
 
 function SelectedPlayer({ player }) {
-    const { name, imageUrl, role, biddingPrice, playerId } = player
+    const { name, imageUrl, role, biddingPrice, playerId } = player;
 
     const selectedCount = () => {
         const playerData = [];
@@ -27,7 +27,7 @@ function SelectedPlayer({ player }) {
     };
 
     const increaseCoins = (biddingPrice) => {
-        localStorage.setItem("coin1234", (getCoins() + biddingPrice));
+        localStorage.setItem("coin1234", getCoins() + biddingPrice);
 
         document.getElementById("coin1").innerHTML = `$${
             localStorage.getItem("coin1234") || "0 Coin"
@@ -36,7 +36,7 @@ function SelectedPlayer({ player }) {
         document.getElementById("coin2").innerHTML = `$${
             localStorage.getItem("coin1234") || "0 Coin"
         }`;
-    } 
+    };
 
     const deletePlayer = (playerId) => {
         localStorage.removeItem(JSON.stringify({ playerId: playerId }));
@@ -46,7 +46,7 @@ function SelectedPlayer({ player }) {
             "selected"
         ).innerHTML = `Selected (${selectedCount()})`;
 
-        increaseCoins(biddingPrice)
+        increaseCoins(biddingPrice);
     };
 
     return (
@@ -55,11 +55,7 @@ function SelectedPlayer({ player }) {
             className="border rounded-xl py-2 px-4 flex items-center justify-between gap-4 my-4"
         >
             <div className="flex items-center gap-4">
-                <img
-                    className="w-24 rounded-lg"
-                    src={imageUrl}
-                    alt={name}
-                />
+                <img className="w-24 rounded-lg" src={imageUrl} alt={name} />
                 <div className="space-y-2">
                     <p className="font-semibold sm:text-xl text-base text-text-primary-black">
                         {name}
@@ -69,11 +65,8 @@ function SelectedPlayer({ player }) {
                     </p>
                 </div>
             </div>
-            <button
-                onClick={() => deletePlayer(playerId)}
-                className="p-2"
-            >
-                <DeleteSvg></DeleteSvg>
+            <button onClick={() => deletePlayer(playerId)} className="p-2">
+                <DeleteSvg />
             </button>
         </div>
     );

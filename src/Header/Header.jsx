@@ -4,10 +4,10 @@ import Banner from "./Banner/Banner";
 function Header() {
     return (
         <header className="p-2">
-            <NavBar></NavBar>
-            <Banner></Banner>
+            <NavBar />
+            <Banner />
         </header>
-    )
+    );
 }
 
 export default Header;
