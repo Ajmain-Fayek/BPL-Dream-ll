@@ -22,7 +22,22 @@ function Banner() {
     };
 
     return (
-        <div className="max-w-screen-2xl mx-auto bg-black rounded-xl mt-32">
+        <div
+            className={
+                localStorage.getItem("user")
+                    ? "max-w-screen-2xl mx-auto bg-black rounded-xl mt-36 relative"
+                    : "max-w-screen-2xl mx-auto bg-black rounded-xl mt-32 relative"
+            }
+        >
+            <div
+                className={
+                    localStorage.getItem("user") ? "p-2 absolute -top-10" : ""
+                }
+            >
+                {localStorage.getItem("user")
+                    ? `Welcome Back ${localStorage.getItem("user")}`
+                    : ""}
+            </div>
             <div
                 className="text-center flex flex-col gap-4 bg-no-repeat bg-cover bg-center rounded-xl py-14 px-2"
                 style={{ backgroundImage: `url(${Banner_bg})` }}

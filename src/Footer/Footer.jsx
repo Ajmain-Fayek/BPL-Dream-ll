@@ -1,4 +1,33 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Footer() {
+    // toast
+    const toastMsg = (msg_text) => {
+        const Msg = ({ closeToast, toastProps }) => (
+            <div className="text-red-800">{msg_text}</div>
+        );
+        toast(Msg);
+    };
+
+    // Toast Call function
+    const displayMsg = (alertMsg) => {
+        toastMsg(alertMsg);
+        // toast(Msg) would also work
+    };
+
+    // Subscription email localstorage handler
+    const subscribeHandler = () => {
+        const email = document.getElementById("nsInput").value;
+
+        email === ""
+            ? displayMsg("Enter your email to Subscribe")
+            : localStorage.getItem("user") === email
+            ? displayMsg("User Already Exist")
+            : localStorage.setItem("user", email);
+
+        document.getElementById("nsInput").value = "";
+    };
     return (
         <footer className="bg-footer-bg">
             {/* Max Screen Footer Container */}
@@ -31,7 +60,7 @@ function Footer() {
                             Contact
                         </a>
                     </nav>
-                    <form>
+                    <form id="f">
                         <h6 className="footer-title text-text-primary-white opacity-100">
                             Subscribe
                         </h6>
@@ -44,11 +73,15 @@ function Footer() {
                             </label>
                             <div className=" sm:join space-y-2 sm:space-y-0">
                                 <input
+                                    id="nsInput"
                                     type="text"
                                     placeholder="Enter Your Email"
                                     className="input min-w-8 input-bordered join-item shadow-[inset_0_0_4px_rgba(0,0,0,0.6)] border-none focus:outline-none focus:shadow-[inset_0_0_10px_rgba(0,0,0,0.4)]"
                                 />
-                                <button className="btn border-none bg-gradient-to-r from-purple-400 to-orange-500 join-item shadow-[inset_0_0_10px_rgba(0,0,0,0.4)]">
+                                <button
+                                    onClick={subscribeHandler}
+                                    className="btn border-none bg-gradient-to-r from-purple-400 to-orange-500 join-item shadow-[inset_0_0_10px_rgba(0,0,0,0.4)]"
+                                >
                                     Subscribe
                                 </button>
                             </div>

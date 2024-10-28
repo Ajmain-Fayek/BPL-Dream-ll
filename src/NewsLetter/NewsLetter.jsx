@@ -1,9 +1,40 @@
+import React from "react";
 import Banner_bg from "../assets/bg-shadow.png";
 import Logo from "../assets/logo-footer.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function NewsLetter() {
+    // toast
+    const toastMsg = (msg_text) => {
+        const Msg = ({ closeToast, toastProps }) => (
+            <div className="text-red-800">{msg_text}</div>
+        );
+        toast(Msg);
+    };
+
+    // Toast Call function
+    const displayMsg = (alertMsg) => {
+        toastMsg(alertMsg);
+        // toast(Msg) would also work
+    };
+
+    // Subscription email localstorage handler
+    const subscribeHandler = () => {
+        const email = document.getElementById("NLinput").value;
+
+        email === ""
+            ? displayMsg("Enter your email to Subscribe")
+            : localStorage.getItem("user") === email
+            ? displayMsg("User Already Exist")
+            : localStorage.setItem("user", email);
+
+        document.getElementById("NLinput").value = "";
+    };
+
     return (
         <div className="relative">
+            <ToastContainer />
             <div className="py-40 sm:py-40"></div>
             <div className="absolute left-2 right-2 top-24 mx-auto space-y-6">
                 <div className="border-4 bg-newsLetter-bg rounded-2xl border-white max-w-screen-2xl mx-auto p-4">
@@ -31,12 +62,16 @@ function NewsLetter() {
                                         <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                                     </svg>
                                     <input
+                                        id="NLinput"
                                         type="text"
                                         className="grow"
                                         placeholder="Enter Your Email"
                                     />
                                 </label>
-                                <button className="btn border-none bg-gradient-to-r from-purple-400 to-orange-500 shadow-[inset_0_0_15px_rgba(0,0,0,0.4)]">
+                                <button
+                                    onClick={subscribeHandler}
+                                    className="btn border-none bg-gradient-to-r from-purple-400 to-orange-500 shadow-[inset_0_0_15px_rgba(0,0,0,0.4)]"
+                                >
                                     Subscribe
                                 </button>
                             </div>

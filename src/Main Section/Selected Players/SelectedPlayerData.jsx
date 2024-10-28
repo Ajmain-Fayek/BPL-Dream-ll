@@ -1,12 +1,8 @@
 import SelectedPlayer from "./SelectedPlayerCard";
-import FetchPlayerData from "../Players Data/PlayerData";
+import "react-toastify/dist/ReactToastify.css";
 import MainSection from "../Main-Section";
 
-import React from "react";
-import Toast from "./toast";
-
 function SelectedPlayerData() {
-
     const playerData = [];
 
     for (let i = 1; i <= 20; i++) {
@@ -24,11 +20,9 @@ function SelectedPlayerData() {
     }
 
     const renderPlayerData = () => {
-        return <Toast />;
-
-        // document.getElementById("playerCardContainer").innerHTML = (
-        //     <MainSection />
-        // );
+        <>
+            <MainSection />
+        </>;
     };
 
     if (playerData.length !== 0) {
@@ -50,8 +44,7 @@ function SelectedPlayerData() {
                         Add More
                     </button>
                 </div>
-                <div id="playerCardContainer">
-                </div>
+                <div id="playerCardContainer"></div>
             </>
         );
     } else {
@@ -66,11 +59,10 @@ function SelectedPlayerData() {
                         onClick={renderPlayerData}
                         className="btn bg-btn-primary"
                     >
-                        Add More
+                        Add Player
                     </button>
                 </div>
-                <div id="playerCardContainer">
-                </div>
+                <div id="playerCardContainer"></div>
             </>
         );
     }
