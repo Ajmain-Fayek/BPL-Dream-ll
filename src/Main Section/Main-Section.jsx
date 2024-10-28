@@ -57,7 +57,9 @@ function MainSection() {
                     id={toggle ? "available-players" : "selected-players"}
                     className="font-semibold"
                 >
-                    {toggle ? "Available Players" : "Selected Players"}
+                    {toggle
+                        ? "Available Players"
+                        : `Selected Player (${selectedCount()}/6)`}
                 </p>
                 <div className="flex flex-col gap-2 sm:gap-0 sm:join sm:flex-row">
                     <button
@@ -80,7 +82,6 @@ function MainSection() {
                 id={toggle ? "allPlayers" : "selectedPlayersSection"}
                 className="w-full"
             >
-
                 {toggle ? <FetchPlayerData /> : <SelectedPlayerData />}
             </div>
         </main>

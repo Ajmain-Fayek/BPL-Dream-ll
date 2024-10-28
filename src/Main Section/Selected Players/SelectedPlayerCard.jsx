@@ -46,6 +46,9 @@ function SelectedPlayer({ player }) {
         document.getElementById(
             "selected"
         ).innerHTML = `Selected (${selectedCount()})`;
+        document.getElementById(
+            "selected-players"
+        ).innerHTML = `Selected Player (${selectedCount()}/6)`;
 
         increaseCoins(biddingPrice);
     };
@@ -56,13 +59,16 @@ function SelectedPlayer({ player }) {
             className="border rounded-xl py-2 px-4 flex items-center justify-between gap-4 my-4"
         >
             <div className="flex items-center gap-4">
-                <img className="w-24 rounded-lg" src={imageUrl} alt={name} />
-                <div className="space-y-2">
+                <img className="w-24 sm:w-32 rounded-lg" src={imageUrl} alt={name} />
+                <div className="space-y-1">
                     <p className="font-semibold sm:text-xl text-base text-text-primary-black">
                         {name}
                     </p>
                     <p className="text-text-secondary-black sm:text-base text-sm">
                         {role}
+                    </p>
+                    <p className="text-text-primary-black sm:text-base text-sm">
+                        ${biddingPrice}
                     </p>
                 </div>
             </div>
