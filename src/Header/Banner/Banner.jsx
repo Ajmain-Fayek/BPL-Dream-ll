@@ -2,17 +2,29 @@ import Banner_Logo from "../../assets/banner-main.png";
 import Banner_bg from "../../assets/bg-shadow.png";
 
 function Banner() {
+    const amout = (a) => {
+        return isNaN(parseFloat(localStorage.getItem("coin1234")))
+            ? a
+            : (parseFloat(localStorage.getItem("coin1234")) + a) % 1 !== 0
+            ? (parseFloat(localStorage.getItem("coin1234")) + a).toFixed(2)
+            : parseFloat(localStorage.getItem("coin1234")) + a;
+    };
 
     const claimCoins = () => {
-        
-            document.getElementById("coin1").innerHTML = `$${500}`
-            document.getElementById("coin2").innerHTML = `$${500}`
-    }
+        localStorage.setItem("coin1234", amout(1000000));
+
+        document.getElementById("coin1").innerHTML = `$${localStorage.getItem(
+            "coin1234"
+        )}`;
+        document.getElementById("coin2").innerHTML = `$${localStorage.getItem(
+            "coin1234"
+        )}`;
+    };
 
     return (
         <div className="max-w-screen-2xl mx-auto bg-black rounded-xl mt-32">
             <div
-                className="text-center flex flex-col gap-4 bg-no-repeat bg-cover bg-center rounded-xl p-14"
+                className="text-center flex flex-col gap-4 bg-no-repeat bg-cover bg-center rounded-xl py-14 px-2"
                 style={{ backgroundImage: `url(${Banner_bg})` }}
             >
                 <div className="mx-auto mb-4">

@@ -60,7 +60,10 @@ function NavBar() {
 
                     {/* Coin Button design */}
                     <p className="flex gap-1.5 items-center font-semibold border p-2 rounded-xl">
-                        <span id="coin1">$0 Coin</span> {<Coin></Coin>}
+                        <span id="coin1">
+                            ${localStorage.getItem("coin1234") || "0 Coin"}
+                        </span>{" "}
+                        {<Coin></Coin>}
                     </p>
                 </div>
             </div>
@@ -81,7 +84,10 @@ function NavBar() {
                     <div className="flex items-center gap-4">
                         {/* Coin Button design */}
                         <p className="flex gap-1.5 items-center font-semibold border p-2 rounded-xl">
-                            <span id="coin2">$0 Coin</span> {<Coin></Coin>}
+                            <span id="coin2">
+                                ${localStorage.getItem("coin1234") || "0 Coin"}
+                            </span>{" "}
+                            {<Coin></Coin>}
                         </p>
 
                         <button

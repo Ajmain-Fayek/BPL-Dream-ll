@@ -3,6 +3,7 @@ import FlagSvg from "./Flag_svg";
 import PropTypes from "prop-types";
 
 function Card({ players }) {
+    // Player Distructured
     const {
         name = "N/A",
         country = "N/A",
@@ -15,6 +16,7 @@ function Card({ players }) {
         playerId,
     } = players;
 
+    // Count selected palyer number
     const selectedCount = () => {
         const playerData = [];
 
@@ -34,9 +36,43 @@ function Card({ players }) {
         return playerData.length;
     };
 
-    // console.log(count);
+    //  Is player Already selected or not validation
+    const isPlayerSelected = (playerId, biddingPrice) => {
+        selectedCount() === 6
+            ? alert("Reached Maximum Player Selection")
+            : localStorage.getItem(`{"playerId":${playerId}}`)
+            ? alert("Player already selected")
+            : reduceCoin(biddingPrice);
+    };
 
-    const selectPlayer = () => {
+    // Get the remaining amout of coins from localStorage
+    const getCoins = () => {
+        return parseFloat(localStorage.getItem("coin1234"));
+    };
+
+    // Show alert if balance is insufficieant then return the remaining coin amount
+    const showAlert = () => {
+        if (getCoins() < biddingPrice) {
+            alert("Insufficient Amout");
+        }
+        return getCoins() === 0 ? 0 : getCoins();
+    };
+
+    // Reduce coin if a player is selected
+    const reduceCoin = (biddingPrice) => {
+        localStorage.setItem(
+            "coin1234",
+            getCoins() < biddingPrice
+                ? showAlert()
+                : getCoins() -
+                      (isNaN(biddingPrice)
+                          ? alert("Bidding Price not Available")
+                          : setPlayer())
+        );
+    };
+
+    // Save players in Local Storage
+    const setPlayer = () => {
         localStorage.setItem(
             [JSON.stringify({ playerId: playerId })],
             [
@@ -49,9 +85,25 @@ function Card({ players }) {
                 }),
             ]
         );
+
+        return biddingPrice;
+    };
+
+    // Chose player button event
+    const selectPlayer = () => {
+        isPlayerSelected(playerId, biddingPrice);
+
         document.getElementById(
             "selected"
         ).innerHTML = `Selected (${selectedCount()})`;
+
+        document.getElementById("coin1").innerHTML = `$${
+            localStorage.getItem("coin1234") || "0 Coin"
+        }`;
+
+        document.getElementById("coin2").innerHTML = `$${
+            localStorage.getItem("coin1234") || "0 Coin"
+        }`;
     };
 
     return (
@@ -89,7 +141,11 @@ function Card({ players }) {
                     </div>
                     <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
                         <p className="font-semibold">Price: ${biddingPrice}</p>
-                        <button onClick={selectPlayer} className="btn bg-white">
+                        <button
+                            id={`btn-playerId${playerId}`}
+                            onClick={selectPlayer}
+                            className="btn bg-white"
+                        >
                             Choose Player
                         </button>
                     </div>
